@@ -92,5 +92,5 @@ async def scrape_multi(urls: List[str]):
 
 @router.get("/health", response_model=HealthResponse)
 async def health_check():
-    """Простой health-check эндпоинт"""
+    """health-check эндпоинт"""
     return {"status": "ok"}
