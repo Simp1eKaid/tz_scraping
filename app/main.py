@@ -1,4 +1,3 @@
-# app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -22,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Подключаем наши роутеры
+# Подключаем роутеры
 app.include_router(scrape_router)
 
 

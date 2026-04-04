@@ -28,7 +28,7 @@ async def scrape_page(
     if not url.startswith("https://books.toscrape.com"):
         raise HTTPException(
             status_code=422,
-            detail="URL must be from books.toscrape.com"
+            detail="URL должен принадлежать books.toscrape.com"
         )
     
     try:
@@ -58,16 +58,16 @@ async def scrape_multi(urls: List[str]):
     Принимает список URL в теле запроса.
     """
     if not urls:
-        raise HTTPException(status_code=400, detail="URL list cannot be empty")
+        raise HTTPException(status_code=400, detail="URL список не может быть пустым")
 
     # Проверка всех URL
     for url in urls:
         if not url.startswith("https://books.toscrape.com"):
             raise HTTPException(
                 status_code=422,
-                detail="All URLs must be from books.toscrape.com"
+                detail="Все URLs должны принадлежать books.toscrape.com"
             )
-
+    # Замеряем время
     start_time = time.time()
     
     try:
