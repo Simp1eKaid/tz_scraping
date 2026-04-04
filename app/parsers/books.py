@@ -2,7 +2,7 @@ import asyncio
 from typing import Dict, List, Optional
 import aiohttp
 from bs4 import BeautifulSoup, Tag
-from loguru import logger
+from app.core.logger import logger
 
 class BookParser:
     """Парсер карточек с сайта"""
@@ -17,6 +17,7 @@ class BookParser:
         for word, value in rating_map.items():
             if word in rating_class:
                 return value
+        logger.warning(f"Неизвестный рейтинговый класс: {rating_class}")    
         return 0
     
     @staticmethod
@@ -61,6 +62,7 @@ class BookParser:
         Возвращает словарь с результатами для одной страницы.
         """
         try:
+            logger.info(f"Начинаю парсить страницу: {url}")
             async with session.get(url, timeout=15) as response:
                 if response.status != 200:
                     logger.error(f"HTTP {response.status} for {url}")
@@ -73,6 +75,8 @@ class BookParser:
                     }
 
                 html = await response.text()
+                logger.debug(f"Received {len(html)} bytes from {url}")
+
                 soup = BeautifulSoup(html, "html.parser")
 
                 # Находим все карточки книг

@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 from app.routers.scrape import router as scrape_router
+from app.core.logger import logger
+from app.core.config import settings
+
 
 app = FastAPI(
     title="Books.toScrape Parser API",
@@ -12,7 +15,7 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# Подключаем CORS (чтобы можно было тестировать из браузера)
+# Подключаем CORS чтобы можно было тестировать из браузера
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
