@@ -38,8 +38,8 @@ docker compose up --build -d
 Приложение будет доступно по адресу: http://localhost:8000
 
 ### 2. Локальный запуск (для разработки)
-# Создаём виртуальное окружение
 ```bash
+# Создаём виртуальное окружение
 python -m venv venv
 source venv/bin/activate
 
