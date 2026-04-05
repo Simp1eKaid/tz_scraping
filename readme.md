@@ -50,10 +50,13 @@ pip install -r requirements.txt
 python -m app.main
 ```
 # API Endpoints
-Метод,Эндпоинт,Описание
-GET,/api/v1/health,Health check
-GET,/api/v1/scrape,Парсинг одной страницы
-POST,/api/v1/scrape/multi,Параллельный парсинг нескольких страниц
+
+| Метод | Эндпоинт             | Описание                                |
+| ----- | -------------------- | --------------------------------------- |
+| GET   | /api/v1/health       | Health check                            |
+| GET   | /api/v1/scrape       | Парсинг одной страницы                  |
+| POST  | /api/v1/scrape/multi | Параллельный парсинг нескольких страниц |
+
 
 # Примеры запросов
 Парсинг одной страницы:
